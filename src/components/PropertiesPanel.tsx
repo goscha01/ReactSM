@@ -235,7 +235,7 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="radius">Radius {objectProperties?.radius ? Math.ceil(objectProperties.radius * (100 / (canvas.getWidth() / 4)) / 2) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
                         value={objectProperties?.radius ? objectProperties.radius * (100 / (canvas.getWidth() / 4)) / 2 : 0}
                         min="1"
                         max="100"
@@ -245,7 +245,7 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="stroke">Stroke {objectProperties?.strokeWidth}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]'
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]'
                         type="range"
                         value={objectProperties?.strokeWidth}
                         min="1"
@@ -290,7 +290,7 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 <input type="text" name="text" id="text" className='border rounded-md px-2 py-0.5' placeholder='Add some text' value={objectProperties?.text} onChange={handleTextChange} />
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="radius">Radius {objectProperties?.radius ? Math.ceil(objectProperties.radius * (100 / (canvas.getWidth() / 4))) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
                         value={objectProperties?.radius ? objectProperties.radius * (100 / (canvas.getWidth() / 4)) : 0}
                         min="1"
                         max="100"
@@ -300,7 +300,7 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="spacing">Spacing {objectProperties?.charSpacing}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]'
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]'
                         type="range"
                         value={objectProperties?.charSpacing}
                         min="1"
@@ -311,7 +311,7 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="startPoint">Start Point {objectProperties.pathStartOffset ? (objectProperties.pathStartOffset / 105 * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties.pathStartOffset} min="0" max="105" name="startPoint" id="startPoint" onChange={handleStartPointChange} />
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties.pathStartOffset} min="0" max="105" name="startPoint" id="startPoint" onChange={handleStartPointChange} />
                 </div>
 
             </div>
@@ -351,7 +351,7 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 <input type="text" name="text" id="text" className='border rounded-md px-2 py-0.5' placeholder='Add some text' value={objectProperties?.text} onChange={handleTextChange} />
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="positionX">Position X: {objectProperties?.left ? (objectProperties.left / canvas.getWidth() * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
                         value={objectProperties?.left}
                         min="0"
                         max={canvas.getWidth()}
@@ -361,11 +361,11 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="positionY">Position Y: {objectProperties.top ? (objectProperties.top / canvas.getHeight() * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties?.top} min="0" max={canvas.getHeight()} name="positionY" id="positionY" onChange={handlePositionYChange} />
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties?.top} min="0" max={canvas.getHeight()} name="positionY" id="positionY" onChange={handlePositionYChange} />
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="rotation">Rotation: {objectProperties.angle ? (objectProperties.angle / 360 * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties.angle} min="0" max="360" step="10" name="rotation" id="rotation" onChange={handleRotationChange} />
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties.angle} min="0" max="360" step="10" name="rotation" id="rotation" onChange={handleRotationChange} />
                 </div>
 
             </div>
@@ -377,7 +377,7 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 <h5 className='text-center'>{objectProperties.uname}</h5>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="positionX">Position X: {objectProperties?.left ? (objectProperties.left / canvas.getWidth() * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range"
                         value={objectProperties?.left}
                         min="0"
                         max={canvas.getWidth()}
@@ -387,15 +387,15 @@ export default function PropertiesPanel({ canvas, selectedObject, objectProperti
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="positionY">Position Y: {objectProperties.top ? (objectProperties.top / canvas.getHeight() * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties?.top} min="0" max={canvas.getHeight()} name="positionY" id="positionY" onChange={handlePositionYChange} />
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties?.top} min="0" max={canvas.getHeight()} name="positionY" id="positionY" onChange={handlePositionYChange} />
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="size">Size: {objectProperties.scaleX ? (objectProperties.scaleX * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties?.scaleX ? objectProperties.scaleX * 100 : 0} min="0" max="100" name="size" id="size" onChange={handleSizeChange} />
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties?.scaleX ? objectProperties.scaleX * 100 : 0} min="0" max="100" name="size" id="size" onChange={handleSizeChange} />
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                     <label htmlFor="rotation">Rotation: {objectProperties.angle ? (objectProperties.angle / 360 * 100).toFixed(0) : 0}%</label>
-                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties.angle} min="0" max="360" step="10" name="rotation" id="rotation" onChange={handleRotationChange} />
+                    <input className='w-full h-1 bg-[#b2b2b2] rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#ff8800]' type="range" value={objectProperties.angle} min="0" max="360" step="10" name="rotation" id="rotation" onChange={handleRotationChange} />
                 </div>
 
             </div>
