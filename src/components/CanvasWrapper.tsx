@@ -158,7 +158,17 @@ export default function CanvasWrapper() {
       layer.name.startsWith(nameKey[object.type as keyof typeof nameKey])
     ).length + 1;
     const name = `${nameKey[object.type as keyof typeof nameKey]} #${typeCount}`;
-    const newLayer = { id: crypto.randomUUID(), name, object };
+
+    // Replace crypto.randomUUID() with a more compatible UUID generation
+    const generateUUID = () => {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    };
+
+    const newLayer = { id: generateUUID(), name, object };
     setLayers(prev => [...prev, newLayer]);
   };
 
