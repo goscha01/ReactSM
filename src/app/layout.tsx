@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { } from "next/font/google";
 import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
-import { GoogleTagManager } from '@next/third-parties/google'
+import Script from "next.script"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +31,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+
+        <Script>{`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+          
+                    gtag('config', 'G-WV0S24L3GV');
+          `}
+
+        </Script>
+      </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -38,7 +51,6 @@ export default function RootLayout({
           {children}
         </MainContextProvider>
       </body>
-      <GoogleTagManager gtmId="G-WV0S24L3GV" />
     </html>
   );
 }
