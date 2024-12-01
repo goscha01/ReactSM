@@ -6,7 +6,7 @@ import React, { useContext } from "react";
 import { MainContext } from "@/components/MainContext";
 import Image from "next/image";
 import AboutSection from "@/components/AboutSection";
-import Script from 'next/script'
+
 
 export default function MainPage() {
   const { isLoading } = useContext(MainContext);
@@ -14,7 +14,7 @@ export default function MainPage() {
   return (
     <div className="">
       {/* Loading overlay */}
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></Script>
+
       <div
         className={`overflow-hidden fixed inset-0 z-50 flex flex-col gap-28 items-center justify-center bg-alpha
           transition-opacity duration-700 ease-in-out
