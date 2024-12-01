@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
 
-        <Script id="google-script">{`
+        <Script id="google-script" strategy="afterInteractive">{`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
