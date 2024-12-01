@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 import { } from "next/font/google";
 import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
-import Script from "next/script"
 import GoogleAdsense from "../components/GoogleAdsense";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,32 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-
-        <Script id="google-script" strategy="afterInteractive">{`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-          
-                    gtag('config', 'G-WV0S24L3GV');
-          `}
-
-        </Script>
-      </head>
-
-      <body
+       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <noscript>
-          <iframe
-          src="https://www.googletagmanager.com/gtag/js?id=G-WV0S24L3GV"
-          height="0"
-          width="0"
-          style={{ display: "none", visibility: "hidden"}}
-          >
-
-          </iframe>
-        </noscript>
+          <GoogleAnalytics />
         <MainContextProvider>
           {children}
         </MainContextProvider>

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/gtag.js": "^0.0.20",
     "fabric": "^6.5.0",
     "next": "14.2.17",
     "react": "^18",
