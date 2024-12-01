@@ -4,6 +4,7 @@ import { } from "next/font/google";
 import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
 import Script from "next/script"
+import GoogleAdsense from "../components/GoogleAdsense";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -61,6 +62,7 @@ export default function RootLayout({
           {children}
         </MainContextProvider>
       </body>
+      <GoogleAdsense pId="（AdsenseのID）" />
     </html>
   );
 }
