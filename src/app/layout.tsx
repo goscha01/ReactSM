@@ -47,6 +47,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <noscript>
+          <iframe
+          src="https://www.googletagmanager.com/gtag/js?id=G-WV0S24L3GV"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden"}}
+          >
+
+          </iframe>
+        </noscript>
         <MainContextProvider>
           {children}
         </MainContextProvider>
