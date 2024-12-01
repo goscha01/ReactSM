@@ -61,8 +61,9 @@ export default function RootLayout({
         <MainContextProvider>
           {children}
         </MainContextProvider>
+        <GoogleAdsense pId="（AdsenseのID）" />
       </body>
-      <GoogleAdsense pId="（AdsenseのID）" />
+
     </html>
   );
 }
