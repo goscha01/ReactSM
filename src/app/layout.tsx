@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { } from "next/font/google";
 import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
-import GoogleAdsense from "../components/GoogleAdsense";
+import GoogleAdsense from "@/components/GoogleAdsense";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = localFont({
@@ -32,14 +32,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <body
+      <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <GoogleAnalytics />
+        <GoogleAnalytics />
         <MainContextProvider>
           {children}
         </MainContextProvider>
-        <GoogleAdsense pId="（AdsenseのID）" />
+        <GoogleAdsense />
       </body>
 
     </html>

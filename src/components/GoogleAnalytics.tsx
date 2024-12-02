@@ -1,60 +1,68 @@
-//components/GoogleAnalytics.tsx
-import { useRouter } from "next/router";
+"use client";
 import Script from "next/script";
-import { memo, useEffect } from "react";
-const TRACKING_ID = "G-WV0S24L3GV"!;
+import { memo, useEffect, Suspense } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+
+// Add proper type declaration for gtag
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dataLayer: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    gtag: (...args: any[]) => void;
+  }
+}
+
+const TRACKING_ID = "G-WV0S24L3GV";
+
 const GoogleAnalytics = () => {
-  const router = useRouter();
-  // 👇 send page views when users gets to the landing page
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // Track page views
   useEffect(() => {
-    if (!TRACKING_ID || router.isPreview) return;
-    gtag("config", TRACKING_ID, {
-      send_page_view: false, //manually send page views to have full control
-    });
-    gtag("event", "page_view", {
-      page_path: window.location.pathname,
-      send_to: TRACKING_ID,
-    });
-  }, []);
-  // 👇 send page views on route change
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      if (!TRACKING_ID || router.isPreview) return;
-      // manually send page views
-      gtag("event", "page_view", {
-        page_path: url,
+    if (pathname) {
+      window?.gtag?.("event", "page_view", {
+        page_path: pathname,
+        page_search: searchParams?.toString() ?? '',
         send_to: TRACKING_ID,
       });
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    router.events.on("hashChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-      router.events.off("hashChangeComplete", handleRouteChange);
-    };
-  }, [router.events, router.isPreview]);
-  // 👇 prevent rendering scripts if there is no TRACKING_ID or if it's preview mode.
-  if (!TRACKING_ID || router.isPreview) {
+    }
+  }, [pathname, searchParams]);
+
+  if (!TRACKING_ID) {
     return null;
   }
+
   return (
     <>
       <Script
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`}
-      ></Script>
-      {/* 👇 gtag function definition. notice that we don't send page views at this point.  */}
+      />
       <Script
         id="gtag-init"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            gtag('config', '${TRACKING_ID}');
           `,
         }}
       />
     </>
   );
 };
-export default memo(GoogleAnalytics);
+
+const MemoizedGoogleAnalytics = memo(GoogleAnalytics);
+
+export default function AnalyticsWrapper() {
+  return (
+    <Suspense fallback={null}>
+      <MemoizedGoogleAnalytics />
+    </Suspense>
+  );
+}
 
