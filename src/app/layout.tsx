@@ -4,7 +4,7 @@ import { } from "next/font/google";
 import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
 import GoogleAdsense from "@/components/GoogleAdsense";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,10 +35,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics />
         <MainContextProvider>
           {children}
         </MainContextProvider>
+        <GoogleAnalytics gaId="G-WV0S24L3GV" />
         <GoogleAdsense />
       </body>
 
