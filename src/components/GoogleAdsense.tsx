@@ -48,7 +48,7 @@ const GoogleAdsense = () => {
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client={ADSENSE_ID}
-        data-ad-slot="4867278946"
+        data-ad-slot="4053401472"
         data-ad-format="auto"
         data-full-width-responsive="true"
       />
