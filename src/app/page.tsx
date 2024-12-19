@@ -6,7 +6,7 @@ import React, { useContext } from "react";
 import { MainContext } from "@/components/MainContext";
 import Image from "next/image";
 import AboutSection from "@/components/AboutSection";
-
+import GoogleAdsense from "@/components/GoogleAdsense";
 
 export default function MainPage() {
   const { isLoading } = useContext(MainContext);
@@ -38,6 +38,7 @@ export default function MainPage() {
           }`}
       >
         <NavbarSection />
+        <GoogleAdsense />
         <CanvasWrapper />
         <InstructionsSection />
         <AboutSection />
