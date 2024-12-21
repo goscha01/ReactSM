@@ -38,7 +38,7 @@ export default function MainPage() {
           }`}
       >
         <NavbarSection />
-        <GoogleAdsense />
+        {/* <GoogleAdsense /> */}
         <CanvasWrapper />
         <InstructionsSection />
         <AboutSection />
