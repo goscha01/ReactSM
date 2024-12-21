@@ -418,9 +418,9 @@ export default function CanvasWrapper() {
 
   return (
     <div className='flex-1 w-full mx-auto px-3 md:px-4'>
-      <Image src={'/images/banners/banner_bottom.png'} height={59} width={468} alt='MyStampMaker' className='sm:hidden mt-4 flex-shrink w-full object-contain h-auto' />
+      {/* <Image src={'/images/banners/banner_bottom.png'} height={59} width={468} alt='MyStampMaker' className='sm:hidden mt-4 flex-shrink w-full object-contain h-auto' /> */}
       <div className='flex pt-4 2xl:pt-6 gap-4 xl:gap-6 2xl:gap-8'>
-        <Image src={'/images/banners/banner_left.png'} height={300} width={88} alt='MyStampMaker' className='hidden lg:block lg:w-14 xl:w-24 2xl:w-32 object-contain h-auto' />
+        {/* <Image src={'/images/banners/banner_left.png'} height={300} width={88} alt='MyStampMaker' className='hidden lg:block lg:w-14 xl:w-24 2xl:w-32 object-contain h-auto' /> */}
         <div className="flex-1 w-full flex gap-2 lg:gap-4 xl:gap-6 2xl:gap-12 pb-4">
           {/* Left Floating Buttons */}
           <div className={`md:hidden z-40 fixed top-1/2 -translate-y-1/2 ${panelOpen ? '-left-full' : 'left-2'} transition-all duration-500`}>
@@ -471,11 +471,11 @@ export default function CanvasWrapper() {
             <PropertiesPanel canvas={canvas} selectedObject={selectedObject} objectProperties={objectProperties} setObjectProperties={setObjectProperties} setSelectedObject={setSelectedObject} />
           </div>
         </div>
-        <Image src={'/images/banners/banner_left.png'} height={300} width={88} alt='MyStampMaker' className='hidden lg:block lg:w-14 xl:w-24 2xl:w-32 object-contain h-auto' />
+        {/* <Image src={'/images/banners/banner_left.png'} height={300} width={88} alt='MyStampMaker' className='hidden lg:block lg:w-14 xl:w-24 2xl:w-32 object-contain h-auto' /> */}
       </div>
       <div className='sm:w-[calc(100%-12rem)] md:w-[calc(100%-14rem)] lg:w-[calc(100%-18rem)] mx-auto grid sm:grid-cols-2 gap-2 2xl:gap-10'>
-        <Image src={'/images/banners/banner_bottom.png'} height={59} width={468} alt='MyStampMaker' className='flex-shrink w-full object-contain h-auto' />
-        <Image src={'/images/banners/banner_bottom.png'} height={59} width={468} alt='MyStampMaker' className='flex-shrink hidden sm:block w-full object-contain h-auto' />
+        {/* <Image src={'/images/banners/banner_bottom.png'} height={59} width={468} alt='MyStampMaker' className='flex-shrink w-full object-contain h-auto' /> */}
+        {/* <Image src={'/images/banners/banner_bottom.png'} height={59} width={468} alt='MyStampMaker' className='flex-shrink hidden sm:block w-full object-contain h-auto' /> */}
       </div>
     </div>
   )
