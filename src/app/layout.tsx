@@ -22,7 +22,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "My Stamp Maker",
   description: "Create, Edit and Save Custom Stamp Designs Online for FREE!",
-  keywords: "Create, Edit and Save Custom Stamp Designs Online for FREE!"
+  keywords: "Create, Edit and Save Custom Stamp Designs Online for FREE!",
 };
 
 export default function RootLayout({
@@ -32,6 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head><meta name="google-adsense-account" content="ca-pub-9305828682531722" /></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
