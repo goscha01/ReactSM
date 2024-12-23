@@ -52,6 +52,7 @@ export default function CanvasWrapper() {
   const [layers, setLayers] = useState<LayerObject[]>([]);
 
   useEffect(() => {
+    console.log('Canvas')
     if (canvasRef.current) {
       const canvasContainer = document.getElementById('canvas-container');
       if (!canvasContainer) return;
