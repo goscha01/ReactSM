@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { useEffect } from "react";
 
+
 const GoogleAdsense = () => {
   const ADSENSE_ID = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || 'ca-pub-9305828682531722';
 
