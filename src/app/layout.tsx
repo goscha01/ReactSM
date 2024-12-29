@@ -5,7 +5,7 @@ import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
 
 import { GoogleAnalytics } from '@next/third-parties/google'
-import GoogleAdsense from "@/components/GoogleAdsense";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,7 +37,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAdsense />
+
         <MainContextProvider>
 
           {children}

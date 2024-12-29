@@ -6,7 +6,7 @@ import PropertiesPanel from '@/components/PropertiesPanel';
 import LayersList from './LayersList';
 import { RoundPathString } from '@/utils/helper';
 import Image from 'next/image';
-import ADSENSE_ID from '@/components/GoogleAdsense'
+
 export interface Properties {
   uname?: string;
   text?: string;
@@ -419,14 +419,6 @@ export default function CanvasWrapper() {
 
   return (
     <div className='flex-1 w-full mx-auto px-3 md:px-4'>
-       <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client={ADSENSE_ID}
-        data-ad-slot="4053401472"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
       {/* <Image src={'/images/banners/banner_bottom.png'} height={59} width={468} alt='MyStampMaker' className='sm:hidden mt-4 flex-shrink w-full object-contain h-auto' /> */}
       <div className='flex pt-4 2xl:pt-6 gap-4 xl:gap-6 2xl:gap-8'>
         {/* <Image src={'/images/banners/banner_left.png'} height={300} width={88} alt='MyStampMaker' className='hidden lg:block lg:w-14 xl:w-24 2xl:w-32 object-contain h-auto' /> */}
