@@ -33,13 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <GoogleAdsense />
-      </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
+        <GoogleAdsense />
         <MainContextProvider>
 
           {children}
