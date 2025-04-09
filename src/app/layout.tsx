@@ -5,6 +5,7 @@ import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
 
 import { GoogleAnalytics } from '@next/third-parties/google'
+import GoogleAdsense from "@/components/GoogleAdsense";
 
 
 const geistSans = localFont({
@@ -39,7 +40,7 @@ export default function RootLayout({
       >
 
         <MainContextProvider>
-
+         <GoogleAdsense />
           {children}
         </MainContextProvider>
         <GoogleAnalytics gaId="G-WV0S24L3GV" />
