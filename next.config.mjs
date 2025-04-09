@@ -4,7 +4,7 @@ const nextConfig = {
   trailingSlash: true,  // Ensures that URLs end with a trailing slash
   distDir: 'build',  // Output directory (you'll upload this folder to S3)
   images: {
-    unoptimized: true,  // Disable image optimization for static export
+    unoptimized: true,  // Disable image optimization for static export 
   },
 };
 
