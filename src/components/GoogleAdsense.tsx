@@ -1,10 +1,11 @@
 'use client';
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const GoogleAdsense = () => {
   const ADSENSE_ID = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || 'ca-pub-9305828682531722';
+  const [adsenseLoaded, setAdsenseLoaded] = useState(false);
 
   // Always call hooks
   useEffect(() => {
@@ -12,6 +13,7 @@ const GoogleAdsense = () => {
       console.log("Loading AdSense script...");
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
+        setAdsenseLoaded(true);
       } catch (err) {
         console.error('AdSense error:', err);
       }
@@ -47,14 +49,16 @@ const GoogleAdsense = () => {
         }}
       />
 
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client={ADSENSE_ID}
-        data-ad-slot="4053401472"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
+      {adsenseLoaded && (
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client={ADSENSE_ID}
+          data-ad-slot="4053401472"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      )}
 
       {/* Temporary production indicator */}
       <div style={{
