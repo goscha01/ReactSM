@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { } from "next/font/google";
 import "./globals.css";
 import MainContextProvider from "@/components/MainContext";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import GoogleAdsense from "@/components/GoogleAdsense";
-import Head from 'next/head';  // Import next/head
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,19 +30,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Add Google AdSense Script Here */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9305828682531722"
-          crossOrigin="anonymous"
-        ></script>
+        {/* Meta Tags for SEO */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        {/* You don't need to add Google Ads script here, it's handled in GoogleAdsense */}
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MainContextProvider>
+          {/* Google AdSense Component */}
           <GoogleAdsense />
           {children}
         </MainContextProvider>
+
+        {/* Google Analytics */}
         <GoogleAnalytics gaId="G-WV0S24L3GV" />
       </body>
     </html>

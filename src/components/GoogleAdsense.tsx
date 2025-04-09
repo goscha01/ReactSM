@@ -1,33 +1,36 @@
 'use client';
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const GoogleAdsense = () => {
   const ADSENSE_ID = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || 'ca-pub-9305828682531722';
-  const [adsenseLoaded, setAdsenseLoaded] = useState(false);
 
-  // Always call hooks
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       console.log("Loading AdSense script...");
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        setAdsenseLoaded(true);
-      } catch (err) {
-        console.error('AdSense error:', err);
-      }
+
+      const loadAd = () => {
+        try {
+          // Ensure adsbygoogle is initialized and try again
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (err) {
+          console.error('AdSense error:', err);
+        }
+      };
+
+      const intervalId = setInterval(() => {
+        if (window.adsbygoogle) {
+          loadAd();
+          clearInterval(intervalId); // Stop trying after it works
+        }
+      }, 500); // Retry every 500ms
+
+      // Clean up interval when component is unmounted
+      return () => clearInterval(intervalId);
     }
   }, []);
 
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('AdSense debug: Component mounted');
-      console.log('AdSense ID:', ADSENSE_ID);
-    }
-  }, []);
-
-  // Conditional rendering only below
   if (process.env.NODE_ENV !== "production") {
     console.log('AdSense not loaded in development mode');
     return null;
@@ -49,30 +52,14 @@ const GoogleAdsense = () => {
         }}
       />
 
-      {adsenseLoaded && (
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client={ADSENSE_ID}
-          data-ad-slot="4053401472"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      )}
-
-      {/* Temporary production indicator */}
-      <div style={{
-        position: 'fixed',
-        bottom: 10,
-        right: 10,
-        background: 'green',
-        color: 'white',
-        padding: '5px 10px',
-        borderRadius: '5px',
-        zIndex: 9999
-      }}>
-        AdSense Active
-      </div>
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client={ADSENSE_ID}
+        data-ad-slot="4053401472"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     </>
   );
 };
