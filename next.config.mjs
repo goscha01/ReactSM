@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  trailingSlash: true,
-  distDir: 'build',
+  output: "export",  // Static export configuration
+  trailingSlash: true,  // Ensures that URLs end with a trailing slash
+  distDir: 'build',  // Output directory (you'll upload this folder to S3)
   images: {
-    unoptimized: true,
+    unoptimized: true,  // Disable image optimization for static export
   },
 };
 
