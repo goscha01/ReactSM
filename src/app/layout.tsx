@@ -32,7 +32,7 @@ export default function RootLayout({
       <head>
         {/* Meta Tags for SEO */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         {/* You don't need to add Google Ads script here, it's handled in GoogleAdsense */}
       </head>
 
