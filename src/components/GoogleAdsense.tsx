@@ -9,6 +9,7 @@ const GoogleAdsense = () => {
   // Always call hooks
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
+      console.log("Loading AdSense script...");
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (err) {
