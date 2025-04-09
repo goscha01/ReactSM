@@ -29,13 +29,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* SEO and Meta Tags */}
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Create, Edit and Save Custom Stamp Designs Online for FREE!" />
+        <meta name="keywords" content="Create, Edit and Save Custom Stamp Designs Online for FREE!" />
+        {/* Add other meta tags if needed */}
+      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MainContextProvider>
-          {/* Google AdSense Component */}
-          <GoogleAdsense />
+          {/* Google AdSense - Only load it in production */}
+          {process.env.NODE_ENV === 'production' && <GoogleAdsense />}
+          
           {children}
         </MainContextProvider>
-        {/* Google Analytics */}
+
+        {/* Google Analytics - Best practice to add it in the head */}
         <GoogleAnalytics gaId="G-WV0S24L3GV" />
       </body>
     </html>
