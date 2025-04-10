@@ -41,6 +41,7 @@ export default function MainPage() {
         <CanvasWrapper />
         <InstructionsSection />
         <AboutSection />
+        <GoogleAdsense adClient="YOUR_AD_CLIENT_ID" />
       </div>
     </div>
   );

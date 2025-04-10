@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from '@next/third-parties/google';
-import GoogleAdsense from "@/components/GoogleAdsense";
 import MainContextProvider from "@/components/MainContext";
 import "./globals.css";
 
@@ -40,8 +39,6 @@ export default function RootLayout({
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MainContextProvider>
-          {/* Google AdSense - Only load it in production */}
-          {process.env.NODE_ENV === 'production' && <GoogleAdsense />}
           
           {children}
         </MainContextProvider>
