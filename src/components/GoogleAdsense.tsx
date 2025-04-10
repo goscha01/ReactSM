@@ -45,22 +45,6 @@ const GoogleAdsense = ({ adClient }: { adClient: string }) => {
         data-ad-format="auto"
         data-full-width-responsive="true"
       />
-
-      {/* Temporary production indicator (remove before release if needed) */}
-      <div
-        style={{
-          position: 'fixed',
-          bottom: 10,
-          right: 10,
-          background: 'green',
-          color: 'white',
-          padding: '5px 10px',
-          borderRadius: '5px',
-          zIndex: 9999,
-        }}
-      >
-        AdSense Active
-      </div>
     </>
   );
 };

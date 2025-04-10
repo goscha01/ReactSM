@@ -34,17 +34,17 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Create, Edit and Save Custom Stamp Designs Online for FREE!" />
         <meta name="keywords" content="Create, Edit and Save Custom Stamp Designs Online for FREE!" />
+        {/* Google Analytics - Best practice to add it in the head */}
+        <GoogleAnalytics gaId="G-WV0S24L3GV" />
         {/* Add other meta tags if needed */}
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MainContextProvider>
-          
           {children}
         </MainContextProvider>
 
-        {/* Google Analytics - Best practice to add it in the head */}
-        <GoogleAnalytics gaId="G-WV0S24L3GV" />
+
       </body>
     </html>
   );

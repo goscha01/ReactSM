@@ -14,7 +14,7 @@ export default function MainPage() {
   return (
     <div className="">
       {/* Loading overlay */}
-
+      <GoogleAdsense adClient="YOUR_AD_CLIENT_ID" />
       <div
         className={`overflow-hidden fixed inset-0 z-50 flex flex-col gap-28 items-center justify-center bg-alpha
           transition-opacity duration-700 ease-in-out
@@ -41,8 +41,7 @@ export default function MainPage() {
         <CanvasWrapper />
         <InstructionsSection />
         <AboutSection />
-        <GoogleAdsense adClient="YOUR_AD_CLIENT_ID" />
-      </div>
+        </div>
     </div>
   );
 }
