@@ -6,7 +6,7 @@ import NavbarSection from "@/components/NavbarSection";
 import { MainContext } from "@/components/MainContext";
 import Image from "next/image";
 import AboutSection from "@/components/AboutSection";
-import GoogleAdSense from '../components/GoogleAdSense'
+// import GoogleAdSense from '../components/GoogleAdSense'
 import ModalPageContent from "@/components/ModalPageContent"; // ← make sure this is the modal version
 import DescriptionComponent from "@/components/DescriptionComponent";
 import Head from "next/head";
