@@ -21,7 +21,7 @@ export default function MainPage() {
         <link rel="canonical" href="https://www.mystampmaker.com/" />
       </Head>
 
-      <GoogleAdSense adClient="YOUR_AD_CLIENT_ID" />
+      {/* <GoogleAdSense adClient="YOUR_AD_CLIENT_ID" /> */}
 
       {/* Loading overlay */}
       <div
