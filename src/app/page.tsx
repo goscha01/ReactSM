@@ -6,7 +6,7 @@ import NavbarSection from "@/components/NavbarSection";
 import { MainContext } from "@/components/MainContext";
 import Image from "next/image";
 import AboutSection from "@/components/AboutSection";
-import GoogleAdsense from "@/components/GoogleAdSense";
+import GoogleAdSense from "@/components/GoogleAdSense";
 import ModalPageContent from "@/components/ModalPageContent"; // ← make sure this is the modal version
 import DescriptionComponent from "@/components/DescriptionComponent";
 import Head from "next/head";
@@ -21,7 +21,7 @@ export default function MainPage() {
         <link rel="canonical" href="https://www.mystampmaker.com/" />
       </Head>
 
-      <GoogleAdsense adClient="YOUR_AD_CLIENT_ID" />
+      <GoogleAdSense adClient="YOUR_AD_CLIENT_ID" />
 
       {/* Loading overlay */}
       <div
