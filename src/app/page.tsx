@@ -6,22 +6,22 @@ import NavbarSection from "@/components/NavbarSection";
 import { MainContext } from "@/components/MainContext";
 import Image from "next/image";
 import AboutSection from "@/components/AboutSection";
-// import GoogleAdSense from '../components/GoogleAdSense'
 import ModalPageContent from "@/components/ModalPageContent"; // ← make sure this is the modal version
 import DescriptionComponent from "@/components/DescriptionComponent";
-import Head from "next/head";
+// import Head from "next/head";
+import GoogleAdSense from "@/components/GoogleAdSense";
 
 export default function MainPage() {
   const { isLoading } = useContext(MainContext);
-  const [showModal, setShowModal] = useState(true); // modal is shown by default
+  // const [showModal, setShowModal] = useState(true); // modal is shown by default
 
   return (
     <div>
-      <Head>
+      {/* <Head>
         <link rel="canonical" href="https://www.mystampmaker.com/" />
-      </Head>
+      </Head> */}
 
-      {/* <GoogleAdSense adClient="YOUR_AD_CLIENT_ID" /> */}
+      <GoogleAdSense adClient="YOUR_AD_CLIENT_ID" />
 
       {/* Loading overlay */}
       <div
@@ -50,12 +50,12 @@ export default function MainPage() {
         <CanvasWrapper />
 
         {/* 🔽 The modal with content */}
-        {showModal && (
+        {/* {showModal && (
           <ModalPageContent
             isOpen={showModal}
             onClose={() => setShowModal(false)}
           />
-        )}
+        )} */}
         <DescriptionComponent />
         <InstructionsSection />
         <AboutSection />
