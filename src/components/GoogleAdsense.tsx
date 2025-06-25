@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const GoogleAdsense = ({ adClient }: { adClient: string }) => {
+const GoogleAdSense = ({ adClient }: { adClient: string }) => {
   const ADSENSE_ID = process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || 'ca-pub-9305828682531722';
   const AD_SLOT_ID = '4053401472';
   const adRef = useRef<HTMLDivElement>(null);
@@ -62,4 +62,4 @@ const GoogleAdsense = ({ adClient }: { adClient: string }) => {
   );
 };
 
-export default GoogleAdsense;
+export default GoogleAdSense;
