@@ -46,9 +46,7 @@ export default function MainPage() {
         }`}
       >
         <NavbarSection />
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          MyStampMaker: Effortless Round Stamp Creation for Translators
-        </h1>
+
         <CanvasWrapper />
 
         {/* 🔽 The modal with content */}
