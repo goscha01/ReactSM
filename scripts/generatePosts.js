@@ -1,42 +1,42 @@
-const fs = require('fs');
-const path = require('path');
-const { Configuration, OpenAIApi } = require('openai');
+const fs = require("fs");
+const path = require("path");
+const OpenAI = require("openai");
 
-const configuration = new Configuration({
+// Initialize OpenAI client
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
-const topics = [
-  "Benefits of Round Stamps for Translators",
-  "How to Make a Stamp Online in Minutes",
-];
+async function generateBlogPost() {
+  try {
+    // Generate blog content
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4",
+      messages: [
+        {
+          role: "user",
+          content: `Write a 500-700 word blog post in Markdown format about "The Benefits of Using Round Stamps for Certified Translations". Include a title, introduction, bullet points if needed, and conclusion.`,
+        },
+      ],
+    });
 
-async function generatePost(title) {
-  const slug = title.toLowerCase().replace(/ /g, '-');
-  const prompt = `Write a 500+ word SEO-friendly blog post about: "${title}" for a website that helps people create round stamps online.`;
+    const blogContent = completion.choices[0].message.content;
 
-  const response = await openai.createCompletion({
-    model: 'text-davinci-003',
-    prompt,
-    max_tokens: 1000,
-  });
+    // Create filename using current date
+    const date = new Date().toISOString().split("T")[0];
+    const filename = `posts/${date}-round-stamps-certified-translations.md`;
 
-  const content = `---
-title: "${title}"
-slug: "${slug}"
-date: "${new Date().toISOString().split('T')[0]}"
----
+    // Ensure posts directory exists
+    fs.mkdirSync("posts", { recursive: true });
 
-${response.data.choices[0].text.trim()}`;
+    // Write to file
+    fs.writeFileSync(filename, blogContent.trim());
 
-  const filePath = path.join(__dirname, '../content/posts', `${slug}.md`);
-  fs.writeFileSync(filePath, content);
-  console.log(`✅ Generated post: ${slug}`);
+    console.log(`✅ Blog post generated: ${filename}`);
+  } catch (error) {
+    console.error("❌ Failed to generate blog post:", error);
+    process.exit(1);
+  }
 }
 
-(async () => {
-  for (const topic of topics) {
-    await generatePost(topic);
-  }
-})();
+generateBlogPost();
