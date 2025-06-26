@@ -1,5 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import StaticPageWrapper from "@/components/StaticPageWrapper";
+import Link from "next/link";
 
 export default function BlogPage() {
   const posts = [
@@ -8,21 +9,19 @@ export default function BlogPage() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
+    <StaticPageWrapper>
       <Link href="/" className="text-blue-600 hover:underline mb-6 inline-block">
         ← Back to Home
       </Link>
-
       <h1 className="text-3xl font-bold mb-6">Blog</h1>
       <ul className="space-y-4">
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`}>
-              <span className="text-blue-600 hover:underline">{post.title}</span>
+            <Link href={`/blog/${post.slug}`} className="text-blue-600 hover:underline">
+              {post.title}
             </Link>
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
+    </StaticPageWrapper>
+  );}

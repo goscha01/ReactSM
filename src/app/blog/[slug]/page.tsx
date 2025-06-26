@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import Link from "next/link";
+import StaticPageWrapper from "@/components/StaticPageWrapper";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join(process.cwd(), "posts"));
@@ -24,15 +25,15 @@ export default async function BlogPost({
   const contentHtml = processedContent.toString();
 
   return (
-    <main className="max-w-3xl mx-auto py-10 px-4">
+    <StaticPageWrapper>
       <Link
-        href="/"
+        href="/blog"
         className="text-blue-600 hover:underline mb-6 inline-block"
       >
-        ← Back to Home
+        ← Back to Blog
       </Link>
       <h1 className="text-4xl font-bold mb-4">{data.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
-    </main>
+    </StaticPageWrapper>
   );
 }

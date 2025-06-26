@@ -5,7 +5,6 @@ import NavbarSection from "@/components/NavbarSection";
 import React, { useContext, useState } from "react";
 import { MainContext } from "@/components/MainContext";
 import Image from "next/image";
-import AboutSection from "@/components/AboutSection";
 import GoogleAdsense from "@/components/GoogleAdsense";
 import DescriptionComponent from "@/components/DescriptionComponent";
 import ModalPageContent from "@/components/ModalPageContent";
@@ -38,7 +37,6 @@ export default function MainPage() {
           isLoading ? "opacity-0 hidden" : "opacity-100 block"
         }`}
       >
-        <NavbarSection />
         <CanvasWrapper />
         {showModal && (
           <ModalPageContent
@@ -46,9 +44,7 @@ export default function MainPage() {
             onClose={() => setShowModal(false)}
           />
         )}
-        <DescriptionComponent />
         <InstructionsSection />
-        <AboutSection />
       </div>
     </div>
   );

@@ -42,3 +42,56 @@
     url("/fonts/calibri-italic.ttf") format("truetype"),
     url("/fonts/calibri-bold-italic.ttf") format("truetype");
 }
+/* === Base Typography === */
+:root {
+  --font-base: 'Geist', 'Arial', sans-serif;
+  --text-color: #1f2937; /* Tailwind gray-800 */
+}
+
+html {
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* === Headings === */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+
+/* === Links === */
+a {
+  color: #2563eb; /* Tailwind blue-600 */
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Content Pages Styling */
+.page-content {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem; /* leading-7 */
+}

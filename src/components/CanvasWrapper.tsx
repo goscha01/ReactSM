@@ -221,7 +221,7 @@ export default function CanvasWrapper() {
           { charSpacing: (selectedObject as CustomFabricText).charSpacing! / 8 }),
       });
     }
-  }, [selectedObject]);
+  }, [selectedObject, layers]);
 
   const addShape = () => {
     if (canvas) {

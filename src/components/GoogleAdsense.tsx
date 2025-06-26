@@ -20,7 +20,7 @@ const GoogleAdSense = ({ adClient }: { adClient: string }) => {
     script.async = true;
     script.crossOrigin = 'anonymous';
     document.head.appendChild(script);
-  }, [adClient]);
+  }, [adClient, ADSENSE_ID]);
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') return;

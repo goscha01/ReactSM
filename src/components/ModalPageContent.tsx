@@ -1,14 +1,13 @@
 // src/components/ModalPageContent.tsx
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
-export default function ModalPageContent({
-  isOpen,
-  onClose,
-}: {
+type ModalPageContentProps = {
   isOpen: boolean;
   onClose: () => void;
-}) {
+};
+
+export default function ModalPageContent({ isOpen, onClose }: ModalPageContentProps) {
   if (!isOpen) return null;
 
   return (
