@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Generate Blog Post
-        run: node scripts/generate-blog.js
+        run: node scripts/generatePosts.js
 
       - name: Upload to S3
         run: |
