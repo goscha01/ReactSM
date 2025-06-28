@@ -16,7 +16,8 @@ phases:
       - echo "✅ Build completed"
       - ls -la
       - ls -la out
-
+      - aws s3 cp out/ s3://$AWS_S3_BUCKET/ --recursive --acl public-read
+      
 artifacts:
   base-directory: out
   files:
