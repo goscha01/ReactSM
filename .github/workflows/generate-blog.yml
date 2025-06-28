@@ -32,4 +32,4 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 cp posts/ s3://$AWS_S3_BUCKET/posts/ --recursive --acl public-read
+           aws s3 cp posts/ s3://$AWS_S3_BUCKET/posts/ --recursive --acl public-read --region  us-east-2

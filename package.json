@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^15.0.3",
+    "dotenv": "^16.6.0",
     "fabric": "^6.5.0",
     "gray-matter": "^4.0.3",
     "next": "14.2.17",
