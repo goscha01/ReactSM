@@ -6,15 +6,11 @@ phases:
       nodejs: 20
     commands:
       - npm ci
-  pre_build:
-    commands:
-      - chmod +x node_modules/.bin/next
   build:
     commands:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync out/ s3://your-bucket-name --delete
       - echo "✅ Build completed"
 
 artifacts:
