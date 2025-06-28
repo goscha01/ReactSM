@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - npm ci
+
+  build:
+    commands:
+      - npm run build
+
+  post_build:
+    commands:
+      - echo "✅ Build completed"
+
+artifacts:
+  base-directory: out
+  files:
+    - '**/*'
