@@ -5,16 +5,18 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - npm install
+      - npm ci
+  pre_build:
+    commands:
+      - chmod +x node_modules/.bin/next
   build:
     commands:
       - npm run build
-      - npx next export -o build  # Keep this line for static output
   post_build:
     commands:
-      - echo "Build completed"
+      - echo "✅ Build completed"
 
 artifacts:
   base-directory: build
   files:
-    - "**/*"
+    - '**/*'
