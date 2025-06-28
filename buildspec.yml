@@ -5,20 +5,16 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - npm ci
-
+      - npm install
   build:
     commands:
       - npm run build
-
+      - npx next export -o build  # Keep this line for static output
   post_build:
     commands:
-      - echo "✅ Build completed"
-      - ls -la
-      - ls -la out
-      - aws s3 cp out/ s3://$AWS_S3_BUCKET/ --recursive --acl public-read
-      
+      - echo "Build completed"
+
 artifacts:
-  base-directory: out
+  base-directory: build
   files:
-    - '**/*'
+    - "**/*"
