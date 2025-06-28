@@ -1,12 +1,17 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 import React from "react";
-import StaticPageWrapper from "@/components/StaticPageWrapper";
 import Link from "next/link";
+import StaticPageWrapper from "@/components/StaticPageWrapper";
 
-export default function BlogPage() {
-  const posts = [
-    { title: "Benefits of Round Stamps for Translators", slug: "benefits-of-round-stamps" },
-    { title: "How to Make a Stamp Online in Minutes", slug: "how-to-make-a-stamp-online" },
-  ];
+interface Post {
+  slug: string;
+  title: string;
+}
+
+export default async function BlogPage() {
+  const posts = await getPosts();
 
   return (
     <StaticPageWrapper>
@@ -24,4 +29,24 @@ export default function BlogPage() {
         ))}
       </ul>
     </StaticPageWrapper>
-  );}
+  );
+}
+
+// Helper function to read posts from markdown files
+async function getPosts(): Promise<Post[]> {
+  const postsDir = path.join(process.cwd(), "posts");
+  const filenames = fs.readdirSync(postsDir);
+
+  return filenames
+    .filter((filename) => filename.endsWith(".md"))
+    .map((filename) => {
+      const filePath = path.join(postsDir, filename);
+      const fileContent = fs.readFileSync(filePath, "utf8");
+      const { data } = matter(fileContent);
+
+      return {
+        slug: filename.replace(".md", ""),
+        title: data.title || filename.replace(".md", ""),
+      };
+    });
+}
