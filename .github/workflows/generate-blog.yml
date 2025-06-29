@@ -30,6 +30,12 @@ jobs:
       - name: Generate Blog Post
         run: node scripts/generatePosts.js
 
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+
       - name: Upload to S3
         run: |
-           aws s3 cp posts/ s3://$AWS_S3_BUCKET/posts/ --recursive --region us-east-2
+          aws s3 cp posts/ s3://$AWS_S3_BUCKET/posts/ --recursive --region us-east-2
