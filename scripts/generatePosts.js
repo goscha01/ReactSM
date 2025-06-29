@@ -8,6 +8,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+const bucketName = process.env.AWS_S3_BUCKET;
+
 async function generateBlogPost() {
   try {
     // Generate blog content
