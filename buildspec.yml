@@ -12,6 +12,7 @@ phases:
   post_build:
     commands:
       - echo "✅ Build completed"
+      - echo "Using bucket $S3_BUCKET_NAME"
       - echo "📤 Uploading build/ to S3..."
       - aws s3 sync build/ s3://$S3_BUCKET_NAME/ --delete --region us-east-2
       - echo "📤 Uploading posts/ to S3..."
