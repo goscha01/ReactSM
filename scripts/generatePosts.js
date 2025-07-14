@@ -45,8 +45,15 @@ async function main() {
     const topic = await generateTopic();
     const blogContent = await generateBlogPost(topic);
 
-    const date = new Date().toISOString().split("T")[0];
-    const filename = `posts/${date}-${sanitizeTitle(topic)}.md`;
+    const now = new Date();
+    const date = now.toISOString().split("T")[0];
+    // Use hours-minutes-seconds for uniqueness
+    const time = now
+      .toISOString()
+      .split("T")[1]
+      .replace(/:/g, "-")
+      .slice(0, 8); // hh-mm-ss
+    const filename = `posts/${date}-${time}-${sanitizeTitle(topic)}.md`;
 
     fs.mkdirSync("posts", { recursive: true });
     fs.writeFileSync(filename, blogContent);
