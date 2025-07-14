@@ -30,7 +30,7 @@ phases:
       - echo "Using bucket $S3_BUCKET_NAME"
       - echo "📤 Uploading build/ to S3..."
       - aws s3 sync build/ s3://$S3_BUCKET_NAME/ --delete --region us-east-2
-      # Do NOT upload posts/ again!
+      # posts/ is never uploaded from here!
 
 artifacts:
   base-directory: build

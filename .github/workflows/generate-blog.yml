@@ -2,13 +2,12 @@ name: Generate Monthly Blog Post
 
 on:
   schedule:
-    - cron: '0 0 1 * *' # Runs on the 1st of every month at midnight UTC
+    - cron: '0 0 1 * *' # 1st of every month at midnight UTC
   workflow_dispatch:
 
 jobs:
   generate-post:
     runs-on: ubuntu-latest
-
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
@@ -31,11 +30,16 @@ jobs:
         run: node scripts/generatePosts.js
 
       - name: Check Posts Directory
-        run: ls -l posts/
+        run: ls -lh posts/
 
-      - name: Upload to S3
+      - name: Upload Posts to S3
         run: |
           aws s3 cp posts/ s3://$AWS_S3_BUCKET/posts/ --recursive --region us-east-2
+
+      - name: Trigger Build (upload trigger.txt)
+        run: |
+          echo "trigger" > posts/trigger.txt
+          aws s3 cp posts/trigger.txt s3://$AWS_S3_BUCKET/posts/trigger.txt --region us-east-2
 
       - name: Show Bucket Contents After Upload
         run: aws s3 ls s3://$AWS_S3_BUCKET/posts/ --recursive --region us-east-2
