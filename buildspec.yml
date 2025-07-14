@@ -6,6 +6,10 @@ phases:
       nodejs: 20
     commands:
       - npm ci
+  pre_build:
+    commands:
+      # Sync all posts from S3 into the local posts/ directory
+      - aws s3 sync s3://$S3_BUCKET_NAME/posts/ posts/ --region us-east-2
   build:
     commands:
       - npm run build
@@ -15,8 +19,7 @@ phases:
       - echo "Using bucket $S3_BUCKET_NAME"
       - echo "📤 Uploading build/ to S3..."
       - aws s3 sync build/ s3://$S3_BUCKET_NAME/ --delete --region us-east-2
-      - echo "📤 Uploading posts/ to S3..."
-      - aws s3 cp posts/ s3://$S3_BUCKET_NAME/posts/ --recursive --region us-east-2 
+      # Do NOT upload posts/ again!
 
 artifacts:
   base-directory: build
