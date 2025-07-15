@@ -30,7 +30,8 @@ phases:
       - echo "Using bucket $S3_BUCKET_NAME"
       - echo "📤 Uploading build/ to S3..."
       - aws s3 sync build/ s3://$S3_BUCKET_NAME/ --delete --exclude "posts/*" --region us-east-2
-      # posts/ is never uploaded from here!
+      - echo "🔄 Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths "/*"
 
 artifacts:
   base-directory: build
