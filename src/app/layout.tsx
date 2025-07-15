@@ -35,6 +35,7 @@ export default function RootLayout({
         <meta name="description" content="Create, Edit and Save Custom Stamp Designs Online for FREE!" />
         <meta name="keywords" content="Create, Edit and Save Custom Stamp Designs Online for FREE!" />
         <GoogleAnalytics gaId="G-WV0S24L3GV" />
+        <meta name="google-site-verification" content="2YLwLylxLC1CTmfSrVginy5cf8vywcibBySUXStybdU" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <MainContextProvider>
