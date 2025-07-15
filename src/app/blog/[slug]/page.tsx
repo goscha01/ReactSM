@@ -8,9 +8,11 @@ import StaticPageWrapper from "@/components/StaticPageWrapper";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join(process.cwd(), "posts"));
-  return files.map((filename) => ({
-    slug: filename.replace(".md", ""),
-  }));
+  return files
+    .filter((filename) => filename.endsWith('.md'))    // <-- Only .md files!
+    .map((filename) => ({
+      slug: filename.replace(/\.md$/, ""),
+    }));
 }
 
 export default async function BlogPost({
