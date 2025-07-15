@@ -33,6 +33,9 @@ jobs:
           mkdir -p posts
           aws s3 cp s3://$AWS_S3_BUCKET/posts/ posts/ --recursive --region us-east-2
 
+      - name: Remove Local trigger.txt (if present)
+        run: rm -f posts/trigger.txt || true
+
       - name: Generate Blog Post
         run: node scripts/generatePosts.js
 
@@ -41,9 +44,6 @@ jobs:
 
       - name: Upload All Posts to S3 (No Delete)
         run: aws s3 cp posts/ s3://$AWS_S3_BUCKET/posts/ --recursive --region us-east-2
-
-      - name: Remove Local trigger.txt (if present)
-        run: rm -f posts/trigger.txt || true
 
       - name: Upload New trigger.txt to S3
         run: |
