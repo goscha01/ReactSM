@@ -28,6 +28,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Write Google Service Account credentials to file
+        run: |
+          mkdir -p credentials
+          echo '${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}' > credentials/mystampmaker-0c5aa95c49ae.json
+
       - name: Sync Down Existing Posts from S3
         run: |
           mkdir -p posts
