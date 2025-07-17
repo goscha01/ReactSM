@@ -2,19 +2,20 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const OpenAI = require("openai");
+const getTopGSCKeywords = require("./get-gsc-queries");
 
 // Initialize OpenAI client
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-async function generateTopic() {
+async function generateTopic(keyword) {
   const response = await openai.chat.completions.create({
     model: "gpt-4",
     messages: [
       {
         role: "user",
-        content: `Suggest a unique and engaging blog post title about rubber stamps for certified translation, notary, or official document use. Respond only with the title.`,
+        content: `Suggest a unique and engaging blog post title that targets the keyword: "${keyword}" and is relevant to rubber stamps for certified translation, notary, or official document use. Respond only with the title.`,
       },
     ],
   });
@@ -42,12 +43,21 @@ function sanitizeTitle(title) {
 
 async function main() {
   try {
-    const topic = await generateTopic();
+    // 1. Get keywords from GSC
+    const keywords = await getTopGSCKeywords();
+    if (!keywords.length) throw new Error("No keywords from GSC!");
+
+    // 2. Pick a random keyword
+    const keyword = keywords[Math.floor(Math.random() * keywords.length)];
+    console.log("Selected keyword:", keyword);
+
+    // 3. Generate topic based on keyword
+    const topic = await generateTopic(keyword); // update function below
     const blogContent = await generateBlogPost(topic);
 
+    // (save post as before...)
     const now = new Date();
     const date = now.toISOString().split("T")[0];
-    // Use hours-minutes-seconds for uniqueness
     const time = now
       .toISOString()
       .split("T")[1]
