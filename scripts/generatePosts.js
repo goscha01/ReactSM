@@ -43,30 +43,32 @@ function sanitizeTitle(title) {
 
 async function main() {
   try {
-    // 1. Get keywords from GSC
     const keywords = await getTopGSCKeywords();
     if (!keywords.length) throw new Error("No keywords from GSC!");
 
-    // 2. Pick a random keyword
     const keyword = keywords[Math.floor(Math.random() * keywords.length)];
     console.log("Selected keyword:", keyword);
 
-    // 3. Generate topic based on keyword
-    const topic = await generateTopic(keyword); // update function below
+    const topic = await generateTopic(keyword);
     const blogContent = await generateBlogPost(topic);
 
-    // (save post as before...)
     const now = new Date();
     const date = now.toISOString().split("T")[0];
-    const time = now
-      .toISOString()
-      .split("T")[1]
-      .replace(/:/g, "-")
-      .slice(0, 8); // hh-mm-ss
-    const filename = `posts/${date}-${time}-${sanitizeTitle(topic)}.md`;
+    const time = now.toISOString().split("T")[1].replace(/:/g, "-").slice(0, 8); // hh-mm-ss
+    const slug = `${date}-${sanitizeTitle(topic)}`;
+    const filename = `posts/${slug}.md`;
+
+    const canonicalUrl = `https://mystampmaker.com/blog/${slug}/`;
+
+    const contentWithCanonical = `${blogContent}
+
+---
+
+**Canonical:** [${canonicalUrl}](${canonicalUrl})
+`;
 
     fs.mkdirSync("posts", { recursive: true });
-    fs.writeFileSync(filename, blogContent);
+    fs.writeFileSync(filename, contentWithCanonical);
 
     console.log(`✅ Blog post generated: ${filename}`);
   } catch (error) {
